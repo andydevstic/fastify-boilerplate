@@ -1,0 +1,5 @@
+{
+  "watch": ["src", "config"],
+  "ignore": ["tests/**/*", "node_modules"],
+  "exec": "ts-node src/app/app.ts"
+}

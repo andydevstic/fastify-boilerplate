@@ -1,0 +1,70 @@
+{
+  "name": "pet-rescue-api",
+  "version": "1.0.0",
+  "description": "This is the API service for Pet Rescue project",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "NODE_ENV=test nyc --reporter lcov mocha -r ts-node/register --timeout 2000 --recursive --exit tests/**/*.spec.ts",
+    "build": "tsc",
+    "start": "NODE_ENV=production npm run build && node ./dist/src/app/app.js",
+    "start:dev": "NODE_ENV=development nodemon src/app/app.ts",
+    "seed": "npm run build && node ./dist/src/app/seed.js"
+  },
+  "nyc": {
+    "include": [
+      "src/lib/"
+    ],
+    "exclude": [
+      "node_modules/",
+      "dist/",
+      "src/app/",
+      "config/"
+    ],
+    "extension": [
+      ".ts"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/andydevstic/pet_rescue_api.git"
+  },
+  "author": "Huy Tran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andydevstic/pet_rescue_api/issues"
+  },
+  "homepage": "https://github.com/andydevstic/pet_rescue_api#readme",
+  "dependencies": {
+    "@fastify/cors": "^8.0.0",
+    "@fastify/helmet": "^9.1.0",
+    "@types/bcrypt": "^5.0.0",
+    "@types/fastify-cors": "^2.1.0",
+    "@types/http-errors": "^1.8.2",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/lodash": "^4.14.182",
+    "ajv-formats": "^2.1.1",
+    "assert": "^2.0.0",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "fastify": "^4.0.2",
+    "http-errors": "^2.0.0",
+    "ioredis": "^5.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.4.0",
+    "sequelize": "^6.21.0",
+    "typescript": "^4.7.3"
+  },
+  "devDependencies": {
+    "@types/mocha": "^9.1.1",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "nyc": "^15.1.0",
+    "sinon": "^14.0.0",
+    "ts-node": "^10.8.1"
+  },
+  "optionalDependencies": {
+    "@types/chai": "^4.3.1"
+  }
+}
