@@ -1,6 +1,19 @@
 import { MongoClientOptions } from 'mongodb';
 
-const { PORT, DATABASE_URL, JWT_SECRET, SALT_ROUNDS, REDIS_HOST, REDIS_PORT } = process.env;
+const {
+  PORT,
+  DATABASE_URL,
+  JWT_SECRET,
+  SALT_ROUNDS,
+  REDIS_HOST,
+  REDIS_PORT,
+  SMTP_HOST,
+  SMTP_PORT,
+  SMTP_SECURE,
+  SMTP_USERNAME,
+  SMTP_PASSWORD,
+  SMTP_SENDER_NAME,
+} = process.env;
 
 export const server = {
   port: Number(PORT) || 3000,
@@ -9,6 +22,15 @@ export const server = {
 export const redis = {
   host: REDIS_HOST || 'localhost',
   port: Number(REDIS_PORT) || 6379,
+};
+
+export const smtp = {
+  host: SMTP_HOST,
+  port: Number(SMTP_PORT),
+  secure: SMTP_SECURE === 'true',
+  user: SMTP_USERNAME,
+  password: SMTP_PASSWORD,
+  senderName: SMTP_SENDER_NAME,
 };
 
 export const saltRounds = Number(SALT_ROUNDS) || 10;

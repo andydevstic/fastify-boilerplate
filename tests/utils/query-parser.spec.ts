@@ -1,12 +1,8 @@
 import { expect } from 'chai';
 import { Op } from 'sequelize';
 
-import { IFilterCriteria } from '../../../src/lib/shared/types';
-import {
-  MongooseFilterCriteriaParser,
-  parseFilterCriteria,
-  SequelizeFilterCriteriaParser,
-} from '../../../src/lib/shared/utils/query-parser';
+import { IFilterCriteria } from '../../src/lib/shared/types';
+import { MongooseFilterCriteriaParser, parseFilterCriteria, SequelizeFilterCriteriaParser } from '../../src/lib/shared/utils/query-parser';
 
 describe('query parser utils', () => {
   describe('sequelize query parser', () => {
